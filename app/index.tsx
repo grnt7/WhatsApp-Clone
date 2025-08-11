@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 //import ChatListItem from "@/src/components/ChatListItem/Index";
 import ChatsScreen from "@/src/screens/ChatsScreen";
+import ChatScreen from "@/src/screens/ChatScreen";
 
 /*const chat = {
 
@@ -20,7 +21,7 @@ export default function Index() {
   return (
     <View
       style={styles.container}>
-  <ChatsScreen/>
+  <ChatScreen/>
     </View>
   );
 }
