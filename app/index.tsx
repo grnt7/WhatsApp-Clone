@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import ChatListItem from "@/src/components/ChatListItem/Index";
+//import ChatListItem from "@/src/components/ChatListItem/Index";
+import ChatsScreen from "@/src/screens/ChatsScreen";
 
-const chat = {
+/*const chat = {
 
   id: "1",
   user: {
@@ -13,15 +14,13 @@ const chat = {
     text: "Hey, how are you?",
     createdAt: "07:30",
   },
-};
+};*/
 
 export default function Index() {
   return (
     <View
       style={styles.container}>
-        
-     <ChatListItem chat={chat} />
-     
+  <ChatsScreen/>
     </View>
   );
 }
@@ -30,6 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    paddingVertical: 20,
+    //alignItems: "center",
 },
 });
