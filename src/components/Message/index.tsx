@@ -35,6 +35,15 @@ const styles = StyleSheet.create({
    // backgroundColor: '#ffffffff',
     //alignSelf: 'flex-start',
     maxWidth: '80%',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2.22,
+    elevation: 3,
   
   },
   text: {
