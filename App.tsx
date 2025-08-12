@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Import the navigators from your project
 import ChatScreen from './src/screens/ChatScreen';
 import MainTabNavigator from './src/navigation/MainTabNavigator';
+import ContactScreen from './src/screens/ContactScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ export default function App() {
           are defined here. The stack will push this screen on top of the tabs.
         */}
         <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen name="Contacts" component={ContactScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

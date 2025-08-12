@@ -13,7 +13,7 @@ const ChatsScreen = () => {
            
            // keyExtractor={(item) => item.id}
         />
-    )
+    );
     
-}
+};
     export default ChatsScreen;

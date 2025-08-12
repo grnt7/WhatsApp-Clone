@@ -18,7 +18,8 @@
     "user": {
       "id": "u3",
       "name": "Daniil Top",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg"
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg",
+      "status": "Available!"
     },
     "lastMessage": {
       "id": "m2",
@@ -57,7 +58,8 @@
     "user": {
       "id": "u6",
       "name": "Elon Musk",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png"
+      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png",
+       "status": "Building Rockets!"
     },
     "lastMessage": {
       "id": "m5",

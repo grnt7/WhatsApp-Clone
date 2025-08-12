@@ -24,7 +24,9 @@ const ChatScreen = () => {
 
   return (
     
-    <KeyboardAvoidingView behaviour={Platform.OS === "ios" ? "padding" : "height"} style={styles.bg}>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 90}
+    style={styles.bg}>
     <ImageBackground source={bg} style={styles.bg}>
      
      <FlatList
@@ -49,4 +51,12 @@ const styles = StyleSheet.create({
         
         padding: 10,
     },
+     input: {
+    flex: 1,
+    backgroundColor: '#eee',
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    fontSize: 16,
+  },
 });
