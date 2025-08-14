@@ -66,5 +66,6 @@ const styles = StyleSheet.create({
     subTitle: {
         color: "gray",
         fontSize: 12,
+       
     }
 });

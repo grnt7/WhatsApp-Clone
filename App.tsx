@@ -6,10 +6,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ChatScreen from './src/screens/ChatScreen';
 import MainTabNavigator from './src/navigation/MainTabNavigator';
 import ContactScreen from './src/screens/ContactScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import { Amplify} from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react-native';
+import awsconfig from './src/aws-exports';
+
+
+Amplify.configure(awsconfig);
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+function App() {
+//export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -32,8 +40,11 @@ export default function App() {
           are defined here. The stack will push this screen on top of the tabs.
         */}
         <Stack.Screen name="Chat" component={ChatScreen} />
-        <Stack.Screen name="Contacts" component={ContactScreen} />
+        <Stack.Screen name="Contacts" component={ContactScreen} /> 
+        {/* <Stack.Screen name="Settings" component={SettingsScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+export default withAuthenticator(App);

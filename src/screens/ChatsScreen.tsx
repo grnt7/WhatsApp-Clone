@@ -9,9 +9,10 @@ const ChatsScreen = () => {
     return (
         <FlatList
             data={chats}
+    
             renderItem={({ item }) => <ChatListItem chat={item} /> }
            
-           // keyExtractor={(item) => item.id}
+           //keyExtractor={(item) => item.id}
         />
     );
     

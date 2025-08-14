@@ -1,6 +1,6 @@
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const InputBox = () => {
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
    sendButton: {
-    backgroundColor: '#1bd066ff',
+    backgroundColor: '#25d366',//whatsapp green
     borderRadius: 25,
     width: 50,
     height: 50,

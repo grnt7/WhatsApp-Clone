@@ -6,12 +6,17 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    // Add these two lines to your compilerOptions
+    "allowJs": true,
+    "esModuleInterop": true
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",     // Add this line to include JS files
+    "**/*.jsx",    // Add this line if you use JSX in JS files
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "App"  ]
+  ]
 }
