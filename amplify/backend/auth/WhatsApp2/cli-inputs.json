@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "whatsa3e93d756",
+    "resourceNameTruncated": "whatsa246f4b2a",
     "userPoolName": "WhatsApp2",
     "autoVerifiedAttributes": [
       "email"
@@ -17,27 +17,30 @@
     "emailVerificationSubject": "Verification code: {####}",
     "emailVerificationMessage": "Verification code: {####}",
     "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 6,
+    "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
       "Requires Lowercase",
       "Requires Numbers",
       "Requires Symbols",
       "Requires Uppercase"
     ],
-    "requiredAttributes": [],
+    "requiredAttributes": [
+      "name"
+    ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "WhatsA3e93d756_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "WhatsA246f4b2a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "3e93d756",
+    "sharedId": "246f4b2a",
     "resourceName": "WhatsApp2",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "usernameAttributes": [
-      "email"
+      "email",
+      "phone_number"
     ],
     "useDefault": "manual",
     "userPoolGroups": false,
@@ -46,21 +49,6 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true,
-    "authRoleArn": {
-      "Fn::GetAtt": [
-        "AuthRole",
-        "Arn"
-      ]
-    },
-    "unauthRoleArn": {
-      "Fn::GetAtt": [
-        "UnauthRole",
-        "Arn"
-      ]
-    },
-    "breakCircularDependency": true,
-    "dependsOn": [],
-    "hostedUI": false
+    "useEnabledMfas": true
   }
 }

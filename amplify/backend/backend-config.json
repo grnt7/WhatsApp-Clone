@@ -38,9 +38,11 @@
             "REQUIRES_SYMBOLS",
             "REQUIRES_UPPERCASE"
           ],
-          "passwordPolicyMinLength": 6
+          "passwordPolicyMinLength": 8
         },
-        "signupAttributes": [],
+        "signupAttributes": [
+          "NAME"
+        ],
         "socialProviders": [],
         "usernameAttributes": [
           "EMAIL"
