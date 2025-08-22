@@ -6,7 +6,7 @@ dayjs.extend(relativeTime);
 const Message = ({ message }) => {
 
 const isMyMessage = () => {
-    return message.user.id === "u1"; // Assuming "u1" is the current user's ID
+    return message.user?.id === "u1"; // Assuming "u1" is the current user's ID
 };
 
   return (

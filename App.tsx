@@ -32,6 +32,8 @@ const client = generateClient();
 const Stack = createNativeStackNavigator();
 
 function App() {
+   const [isAmplifyReady, setIsAmplifyReady] = useState(false);
+   
   const [isAuthReady, setIsAuthReady] = useState(false);
 
   useEffect(() => {

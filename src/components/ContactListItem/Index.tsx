@@ -1,75 +1,90 @@
-import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { generateClient } from 'aws-amplify/api';
+import { createChatRoom, createUserChatRoom } from "../../graphql/mutations";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 dayjs.extend(relativeTime);
 
+// Initialize the client for this component
+const client = generateClient();
 
 const ContactListItem = ({ user }) => {
-
   const navigation = useNavigation();
-    
-    return (
-       <Pressable onPress={() => navigation.navigate('Chat', { id: chat.id, name: chat.user.name } )}  style={styles.container}>
-        <Image 
+
+  const onPress = async () => {
+    try {
+      // Create a new chat room using the modern client
+      const newChatRoomData = await client.graphql({
+        query: createChatRoom,
+        variables: { input: {} }
+      });
+
+      const newChatRoom = newChatRoomData.data.createChatRoom;
+
+      // Add the clicked user to the new chat room
+      await client.graphql({
+        query: createUserChatRoom,
+        variables: {
+          input: {
+            userId: user.id,
+            chatRoomId: newChatRoom.id,
+          },
+        },
+      });
+      
+      // Navigate to the newly created chat room
+      navigation.navigate('Chat', { id: newChatRoom.id, name: user.name });
+      
+    } catch (e) {
+      console.log('Error creating chat room:', e);
+    }
+  };
+
+  return (
+    <Pressable onPress={onPress} style={styles.container}>
+      <Image
         source={{ uri: user.image }}
         style={styles.image}
-         />
+      />
+      <View style={styles.content}>
+        <Text style={styles.name} numberOfLines={1}>
+          {user.name}
+        </Text>
+        <Text numberOfLines={2} style={styles.subTitle}>
+          {user.status}
+        </Text>
+      </View>
+    </Pressable>
+  );
+};
 
-         <View style={styles.content}> 
-            
-            {/* <View style={styles.row}> */}
-            <Text style={styles.name} numberOfLines={1}>
-              {user.name}</Text>
-             {/* <Text style={styles.subTitle}>{dayjs(chat.lastMessage.createdAt).fromNow(true)}</Text> */}
-            {/* </View> */}
-            
-            <Text numberOfLines={2} style={styles.subTitle}>
-              {user.status}
-              
-              </Text> 
-        </View> 
-       </Pressable>
-    )
-
-
-
-}
 export default ContactListItem;
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        marginHorizontal: 10,
-        marginVertical: 5,
-        height: 70,
-    
-    },
+  container: {
+    flexDirection: "row",
+    marginHorizontal: 10,
+    marginVertical: 5,
+    height: 70,
+  },
   image: {
-    width: 50, 
-    height: 50, 
+    width: 50,
+    height: 50,
     borderRadius: 30,
     marginRight: 10,
- 
-   
   },
   content: {
     flex: 1,
-    //backgroundColor:'red',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "lightgray",
   },
-  row: {
-    flexDirection: "row",
-    marginBottom: 5,
-    
+  name: {
+    fontWeight: "bold",
   },
-    name: {
-        fontWeight: "bold",
-    },
-    subTitle: {
-        color: "gray",
-        fontSize: 12,
-         width: "100%",
-    }
+  subTitle: {
+    color: "gray",
+    fontSize: 12,
+    width: "100%",
+  },
 });
