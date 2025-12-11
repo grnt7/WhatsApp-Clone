@@ -1,26 +1,57 @@
-import { useNavigation } from "@react-navigation/native";
-import { generateClient } from 'aws-amplify/api';
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { generateClient } from 'aws-amplify/api'; // Correct import for client
+import { getCurrentUser } from 'aws-amplify/auth'; // Correct import for authentication
 import { createChatRoom, createUserChatRoom } from "../../graphql/mutations";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { GraphQLResult } from '@aws-amplify/api';
+import { GraphQLQuery } from "@aws-amplify/api"; // You may need this for type safety
+import { NavigatorScreenParams } from '@react-navigation/native';
+import { RootStackParamList } from '../../types'
+
 dayjs.extend(relativeTime);
 
 // Initialize the client for this component
 const client = generateClient();
 
-const ContactListItem = ({ user }) => {
-  const navigation = useNavigation();
+interface User {
+  id: string;
+  name: string;
+  image: string;
+  status: string;
+}
+
+interface ContactListItemProps {
+  user: User;
+}
+
+const ContactListItem: React.FC<ContactListItemProps> = ({ user }) => {
+  //const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const onPress = async () => {
-    try {
-      // Create a new chat room using the modern client
-      const newChatRoomData = await client.graphql({
-        query: createChatRoom,
-        variables: { input: {} }
-      });
+    console.warn("Pressed")
 
-      const newChatRoom = newChatRoomData.data.createChatRoom;
+    try {
+      // Create a new chat room using the MODERN client.
+     const newChatRoomData = (await client.graphql({
+  query: createChatRoom,
+  variables: { input: {} }
+})) as GraphQLResult<any>;
+      
+      console.log(newChatRoomData);
+      
+      if (!newChatRoomData.data?.createChatRoom) {
+        console.log("Error creating the chat error")
+      }
+
+      const newChatRoom = newChatRoomData.data?.createChatRoom;
+
+      if (!newChatRoom) {
+        console.log("Chat room not created, exiting.");
+        return;
+      }
 
       // Add the clicked user to the new chat room
       await client.graphql({
@@ -31,6 +62,19 @@ const ContactListItem = ({ user }) => {
             chatRoomId: newChatRoom.id,
           },
         },
+      });
+
+      // Add the authenticated user to the new chat room
+      const authUser = await getCurrentUser(); // MODERN AUTHENTICATION CALL
+      
+      await client.graphql({
+        query: createUserChatRoom,
+        variables: {
+          input: {
+            userId: authUser.userId,
+            chatRoomId: newChatRoom.id,
+          },
+        }
       });
       
       // Navigate to the newly created chat room
