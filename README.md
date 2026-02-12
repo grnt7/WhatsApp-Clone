@@ -57,7 +57,7 @@ WhatsApp Clone
 
 - Start building the WhatsApp clone from scratch, starting by setting up a React Native project using Expo all the way to building the backend using AWS Amplify. We will walk through designing the UI layout of the app, structuring everything in components, and putting everything together. We will also implement navigation between screens, header bars, and tab bars for the Whatsapp menu. 
 
--For the backend, we will be using AWS Amplify, which is an amazing combination of tools and services from AWS, that helps us build mobile and web applications faster. It offers pre-made authentication components and flows, database, API (REST and GraphQL), storage, and much more. We will be using Graphql subscriptions for the real-time chat functionalities
+- For the backend, we will be using AWS Amplify, which is an amazing combination of tools and services from AWS, that helps us build mobile and web applications faster. It offers pre-made authentication components and flows, database, API (REST and GraphQL), storage, and much more. We will be using Graphql subscriptions for the real-time chat functionalities
 
--Doing the Whatsapp clone yourself is a great opportunity to practice React Native, modern Javascript, and AWS Amplify. We are always trying to use the latest technologies and best practices, so that's another opportunity to learn something new, being it functional components, hooks, state, navigations, or AWS and Amplify.
+- Doing the Whatsapp clone yourself is a great opportunity to practice React Native, modern Javascript, and AWS Amplify. We are always trying to use the latest technologies and best practices, so that's another opportunity to learn something new, being it functional components, hooks, state, navigations, or AWS and Amplify.
 
