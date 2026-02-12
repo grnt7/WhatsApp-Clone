@@ -1,25 +1,20 @@
-# 🚀 Project Name (e.g., AI-Powered SaaS)
+# 🚀 Project Name : Whats App Clone.
 
 A brief one-sentence description of what this actually solves. 
-Built with **Next.js**, **Stripe**, and **Clerk**.
+Built with **React Native**, **Expo**, and **AWS Amplify**.
 
 ## 🛠 Tech Stack
-* **Frontend:** React, Next.js (App Router), Tailwind CSS
-* **Auth:** Clerk (Custom JWT Templates & Webhooks)
-* **Payments:** Stripe SDK & Webhook verification
-* **DevOps:** Docker (Local LLM environment), Terraform (GCP)
+* **Frontend:** React Native, Expo, Tailwind CSS
+* **AWS:** Amplify 
+* **Graphql
+* **API (REST and GraphQL)
 
-## 🐳 Getting Started (Docker)
+## 🐳 Getting Started
 This project is containerized for environment parity.
 
 1. Clone the repo: `git clone ...`
-2. Spin up the local AI environment:
-   ```bash
-   docker-compose up -d
-
-
-WHATS APP CLONE!!
-
+2. Spin up the Expo App.
+   
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
