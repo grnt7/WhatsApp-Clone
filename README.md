@@ -1,19 +1,18 @@
-# 🚀 Project Name : Whats App Clone.
+# 🚀 Project Name : WhatsApp 2.0 Clone.
 
 A brief one-sentence description of what this actually solves. 
 Built with **React Native**, **Expo**, and **AWS Amplify**.
 
 ## 🛠 Tech Stack
-* **Frontend:** React Native, Expo, Tailwind CSS
-* **AWS:** Amplify 
-* **Graphql
-* **API (REST and GraphQL)
+* **Frontend:** React Native, Expo, React Native Elements
+* **Backend: ** AWS:REST and GraphQL
+* **Development: Android Studio and Expo.
 
 ## 🐳 Getting Started
 This project is containerized for environment parity.
 
 1. Clone the repo: `git clone ...`
-2. Spin up the Expo App.
+2. Spin up the Expo App. npx create-expo-app WhatsApp
    
 # Welcome to your Expo app 👋
 
