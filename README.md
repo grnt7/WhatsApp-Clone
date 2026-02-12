@@ -61,3 +61,4 @@ WhatsApp Clone
 
 - Doing the Whatsapp clone yourself is a great opportunity to practice React Native, modern Javascript, and AWS Amplify. We are always trying to use the latest technologies and best practices, so that's another opportunity to learn something new, being it functional components, hooks, state, navigations, or AWS and Amplify.
 
+Disclaimer: This build is for educational purposes only!! 
