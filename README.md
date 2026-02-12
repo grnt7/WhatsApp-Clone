@@ -1,3 +1,23 @@
+# 🚀 Project Name (e.g., AI-Powered SaaS)
+
+A brief one-sentence description of what this actually solves. 
+Built with **Next.js**, **Stripe**, and **Clerk**.
+
+## 🛠 Tech Stack
+* **Frontend:** React, Next.js (App Router), Tailwind CSS
+* **Auth:** Clerk (Custom JWT Templates & Webhooks)
+* **Payments:** Stripe SDK & Webhook verification
+* **DevOps:** Docker (Local LLM environment), Terraform (GCP)
+
+## 🐳 Getting Started (Docker)
+This project is containerized for environment parity.
+
+1. Clone the repo: `git clone ...`
+2. Spin up the local AI environment:
+   ```bash
+   docker-compose up -d
+
+
 WHATS APP CLONE!!
 
 # Welcome to your Expo app 👋
